@@ -1,0 +1,14 @@
+version: '2'
+
+volumes:
+  devpi_data:
+    external: true
+
+services:
+  devpi:
+    image: cloudhotspot/devpi
+    volumes:
+      - devpi_data:/var/lib/devpi
+    ports:
+      - "8000:8000"
+    command: "--port 8000"
