@@ -11,4 +11,5 @@ services:
       - devpi_data:/var/lib/devpi
     ports:
       - "8000:8000"
+    stop_signal: SIGINT
     command: "--port 8000"
