@@ -17,3 +17,29 @@ By default, Devpi listens on port 3141 and you must map this port if you do not 
 You can run Devpi on a custom port by supplying the `--port <port>` option as a command argument:
 
 `docker run -d --name devpi -p 8000:8000 cloudhotspot/devpi --port 8000`
+
+## Sample Docker Compose File
+
+This repository includes a sample `docker-compose.yml` file:
+
+```
+version: '2'
+
+volumes:
+  devpi_data:
+    external: true
+
+services:
+  devpi:
+    image: cloudhotspot/devpi
+    volumes:
+      - devpi_data:/var/lib/devpi
+    ports:
+      - "8000:8000"
+    command: "--port 8000"
+```
+
+To use the Docker Compose file:
+
+1. Create an external docker volume called `devpi_data` by running `docker volume create --name devpi_data`
+2. Run `docker-compose up -d`.  Devpi will be running on port 8000.
