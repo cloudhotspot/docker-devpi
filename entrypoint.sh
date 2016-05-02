@@ -35,4 +35,4 @@ echo "[RUN]:   --restrict-modify root"
 echo "[RUN]:   --host 0.0.0.0"
 echo "[RUN]:   $@"
 
-exec devpi-server --restrict-modify root --host 0.0.0.0 $@
+exec devpi-server --serverdir /var/lib/devpi --restrict-modify root --host 0.0.0.0 $@
