@@ -4,7 +4,7 @@
 
 This repository includes a Dockerfile that builds a lightweight [Devpi](http://doc.devpi.net/latest/) server based upon Alpine Linux. 
 
-The current published image size is ~29MB and the virtual size is ~90MB.
+[The current published image size](https://hub.docker.com/r/cloudhotspot/devpi/) is ~29MB and the virtual size is ~90MB.
 
 ### Initialization
 
