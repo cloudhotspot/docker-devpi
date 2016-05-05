@@ -9,6 +9,7 @@ services:
     image: cloudhotspot/devpi
     volumes:
       - devpi_data:/var/lib/devpi
+      - ./backup.bz2:/devpi-init.d/backup.bz2
     ports:
       - "8000:8000"
     stop_signal: SIGINT

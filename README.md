@@ -30,9 +30,23 @@ You can run Devpi on a custom port by supplying the `--port <port>` option as a 
 
 `docker run -d --name devpi -p 8000:8000 cloudhotspot/devpi --port 8000`
 
+### Devpi Server Data Directory
+
+By default the devpi server will use `/var/lib/devpi-server` as its data directory.  
+
+You can override this my setting the `DEVPI_SERVERDIR` environment variable:
+
+`docker run -d --name devpi -e DEVPI_SERVERDIR=/mnt/devpi -p 8000:8000 cloudhotspot/devpi --port 8000`
+
+### Importing Server State
+
+The entrypoint script looks in a directory called /devpi-init.d, extracts all *.bz2 files to a temporary folder and then attempts to import the contents of the extract files into devpi.  This is useful if you have previously exported the state of a previous Devpi server.  
+
+See the [devpi-server administration docs](http://doc.devpi.net/latest/adminman/server.html) for more details on exporting and importing server state.
+
 ### Sample Docker Compose File
 
-This repository includes a sample `docker-compose.yml` file:
+This repository includes a sample `docker-compose.yml` file.  Note this sample assumes you have exported and compressed previous devpi server state to a file called `backup.bz2`:
 
 ```
 version: '2'
@@ -46,6 +60,7 @@ services:
     image: cloudhotspot/devpi
     volumes:
       - devpi_data:/var/lib/devpi
+      - ./backup.bz2:/devpi-init.d/backup.bz2
     ports:
       - "8000:8000"
     stop_signal: SIGINT
