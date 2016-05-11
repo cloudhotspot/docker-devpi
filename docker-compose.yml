@@ -13,4 +13,8 @@ services:
     ports:
       - "8000:8000"
     stop_signal: SIGINT
-    command: "--port 8000"
+    environment:
+      DEVPI_USER: dev
+      DEVPI_PASSWORD: ${DEVPI_PASSWORD}
+      DEVPI_INDEX: root
+      DEVPI_PORT: "8000"
