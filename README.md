@@ -1,6 +1,6 @@
 # Devpi Docker Image
 
-[![](https://imagelayers.io/badge/cloudhotspot/devpi:latest.svg)](https://imagelayers.io/?images=cloudhotspot/devpi:latest 'Get your own badge on imagelayers.io')
+[![](https://images.microbadger.com/badges/image/cloudhotspot/devpi.svg)](https://microbadger.com/images/cloudhotspot/devpi "Get your own image badge on microbadger.com")
 
 This repository includes a Dockerfile that builds a lightweight [Devpi](http://doc.devpi.net/latest/) server based upon Alpine Linux. 
 
